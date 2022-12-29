@@ -2,13 +2,18 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import { useState } from "react";
 import { chooseEmail,choosePassword  } from "../redux/rootSlice";
 
 
 const Step2 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePassword = () => {
+    setPasswordShown((passwordShown) => !passwordShown);
+  };
+
   const email = useSelector(state => state.email)
   const password = useSelector(state => state.password)
 
@@ -54,35 +59,38 @@ const Step2 = () => {
                                     }
                                 })}
                             />
-                            
-                            
                         </div>
-                        <div className="mx-auto form-control w-full max-w-xs">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input
-                                type="password"
-                                placeholder="Password"
-                                className="input input-bordered w-full max-w-xs"
-                                {...register("password", {
-                                    required: {
-                                        value: true,
-                                        message: <h4>Password is Required</h4>
-                                    },
-                                    minLength: {
-                                        value: 6,
-                                        message: <h4>Must be 6 characters or longer</h4>
-                                    }
-                                })}
+
+                          <span>Password:
+       
+                 <input  type={passwordShown ? "text" : "password"} placeholder={"password..."}
+     
+                  {...register("password",{
+                  required:  {
+
+                   value:true,
+                   message: <h4>Password is required</h4>
+                   },
+                   minLength: {
+                    value: 6,
+                    message: <h4>Must be 6 characters or longer</h4>
+                }
+       
+                   })}
+                   />
+                   </span>
+
+                   
+               <input 
+                 type="checkbox"
+                 id="checkbox"
+                 checked={passwordShown}
+                 onChange={togglePassword}
+              />
+              <label htmlFor="checkbox">Show password </label>
+                        
                                 
-                                
-                            />
-                           
-                            
                           
-                        </div>
-                         
 
 
 
