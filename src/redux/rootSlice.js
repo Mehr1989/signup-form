@@ -25,8 +25,7 @@ const rootSlice = createSlice({
      
   }
 })
-
-export default rootSlice.reducer
+export const reducer = rootSlice.reducer;
 
 export const { chooseFirstName,
                chooseLastName,

@@ -1,13 +1,7 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import rootReducer from "./rootSlice"
+import { configureStore } from '@reduxjs/toolkit'
+import {reducer} from '../redux/rootSlice'
 
-const reducer = combineReducers({
-    root : rootReducer
+export const store = configureStore({
+  reducer
 })
 
-
-const store = configureStore({
-    reducer
-})
-
-export default store

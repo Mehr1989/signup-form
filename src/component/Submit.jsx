@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { chooseFirstName, chooseLastName, chooseEmail,
     choosePassword, chooseAge,chooseGender,
      choosePhoneNumber ,chooseAdress  } from '../redux/rootSlice';
-import {  } from '../redux/rootSlice';
+
 
 const Submit = () => {
     const state = useSelector(state => state)
