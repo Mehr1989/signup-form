@@ -22,6 +22,14 @@ const Step4 = () => {
   };
   return (
     <>
+      <label className="label">
+          {errors.phoneNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phoneNumber.message}</span>}
+       </label>
+
+       <label className="label">
+           {errors.adress?.type === 'required' && <span className="label-text-alt text-red-500">{errors.adress.message}</span>}
+        </label>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mx-auto form-control w-full max-w-xs">
           <label className="label">
@@ -34,13 +42,11 @@ const Step4 = () => {
             {...register("phoneNumber", {
               required: {
                 value: true,
-                message: 'Phone number is Required'
+                message: <h4>Phone number is Required</h4>
               }
             })}
           />
-          <label className="label">
-            {errors.phoneNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phoneNumber.message}</span>}
-          </label>
+          
         </div>
         <div className="mx-auto form-control w-full max-w-xs">
           <label className="label">
@@ -53,13 +59,11 @@ const Step4 = () => {
             {...register("adress", {
               required: {
                 value: true,
-                message: 'Adress is Required'
+                message: <h4>Adress is Required</h4>
               }
             })}
           />
-          <label className="label">
-            {errors.adress?.type === 'required' && <span className="label-text-alt text-red-500">{errors.adress.message}</span>}
-          </label>
+          
         </div>
 
 

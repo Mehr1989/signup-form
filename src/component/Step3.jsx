@@ -22,6 +22,13 @@ const Step3 = () => {
 
   return (
     <>
+
+
+     <label className="label">
+         {errors.age?.type === 'required' && <span className="label-text-alt text-red-500">{errors.age.message}</span>}
+      </label>
+
+      
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mx-auto form-control w-full max-w-xs">
           <label className="label">
@@ -34,13 +41,11 @@ const Step3 = () => {
             {...register("age", {
               required: {
                 value: true,
-                message: 'Your age is Required'
+                message: <h4>Your age is Required</h4>
               }
             })}
           />
-          <label className="label">
-            {errors.age?.type === 'required' && <span className="label-text-alt text-red-500">{errors.age.message}</span>}
-          </label>
+         
         </div>
         <div className="mx-auto form-control w-full max-w-xs">
           <label htmlFor="gender" className="label">

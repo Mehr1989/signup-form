@@ -22,6 +22,18 @@ const Step2 = () => {
 
   return (
     <>
+
+    <label className="label">
+      {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+      {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+    </label>
+
+    <label className="label">
+      {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+      {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+    </label>
+
+
      <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="mx-auto form-control w-full max-w-xs">
                             <label className="label">
@@ -34,19 +46,16 @@ const Step2 = () => {
                                 {...register("email", {
                                     required: {
                                         value: true,
-                                        message: 'Email is Required'
+                                        message: <h4>Email is Required</h4>
                                     },
                                     pattern: {
                                         value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                        message: 'Provide a valid Email'
+                                        message: <h4>Provide a valid Email</h4>
                                     }
                                 })}
                             />
                             
-                            <label className="label">
-                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                            </label>
+                            
                         </div>
                         <div className="mx-auto form-control w-full max-w-xs">
                             <label className="label">
@@ -59,11 +68,11 @@ const Step2 = () => {
                                 {...register("password", {
                                     required: {
                                         value: true,
-                                        message: 'Password is Required'
+                                        message: <h4>Password is Required</h4>
                                     },
                                     minLength: {
                                         value: 6,
-                                        message: 'Must be 6 characters or longer'
+                                        message: <h4>Must be 6 characters or longer</h4>
                                     }
                                 })}
                                 
@@ -71,10 +80,7 @@ const Step2 = () => {
                             />
                            
                             
-                            <label className="label">
-                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                            </label>
+                          
                         </div>
                          
 

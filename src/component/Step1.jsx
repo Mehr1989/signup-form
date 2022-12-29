@@ -21,8 +21,20 @@ const Step1 = () => {
 
     return (
         <div className=''>
-            <form onSubmit={handleSubmit(onSubmit)}>
+             
+             
+          <label className="label">
+            {errors.firstName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.firstName.message}</span>}
+          </label>
+
+          <label className="label">
+            {errors.lastName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.lastName.message}</span>}
+          </label>
+
+
+          <form onSubmit={handleSubmit(onSubmit)}>
                 <div className=" mx-auto form-control w-full max-w-xs">
+
                     <label className="label">
                         <span className="label-text">First Name</span>
                     </label>
@@ -33,13 +45,11 @@ const Step1 = () => {
                         {...register("firstName", {
                             required: {
                                 value: true,
-                                message: 'First Name is Required'
+                                message: <h4>First Name is Required</h4>
                             }
                         })}
                     />
-                    <label className="label">
-                        {errors.firstName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.firstName.message}</span>}
-                    </label>
+                
                 </div>
                 <div className=" mx-auto form-control w-full max-w-xs">
                     <label className="label">
@@ -52,13 +62,11 @@ const Step1 = () => {
                         {...register("lastName", {
                             required: {
                                 value: true,
-                                message: 'Last Name is Required'
+                                message: <h4>Last Name is Required</h4> 
                             }
                         })}
                     />
-                    <label className="label">
-                        {errors.lastName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.lastName.message}</span>}
-                    </label>
+                   
                 </div>
 
                 <div className='flex justify-center'>
