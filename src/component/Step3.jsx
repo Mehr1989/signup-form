@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { chooseAge,chooseGender } from "../redux/rootSlice";
 
 
@@ -28,16 +28,16 @@ const Step3 = () => {
          {errors.age?.type === 'required' && <span className="label-text-alt text-red-500">{errors.age.message}</span>}
       </label>
 
-      
+
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mx-auto form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text">Age</span>
+        <div>
+          <label>
+            <span>Age</span>
           </label>
           <input
             type="number"
             placeholder="Your age"
-            className="input input-bordered w-full max-w-xs"
+          
             {...register("age", {
               required: {
                 value: true,
@@ -47,22 +47,23 @@ const Step3 = () => {
           />
          
         </div>
-        <div className="mx-auto form-control w-full max-w-xs">
+        <div>
           <label htmlFor="gender" className="label">
-            <span className="label-text">Gender:</span>
+            <span>Gender:</span>
           </label>
 
-          <select className="input input-bordered w-full max-w-xs" id="gender" {...register('gender')}>
+          <select  id="gender" {...register('gender')}>
             <option value="male">Male</option>
             <option value="female">Female</option>
            
           </select>
         </div>
-        <div className="flex justify-center">
-          <input className='mt-4 btn w-full max-w-xs text-white' type="submit" value="Next" />
+        <div >
+        <button onClick={() =>navigate("/step2")}>Back</button>
+          <input  type="submit" value="Next" />
         </div>
 
-        <Link className="flex justify-center" to="/step2"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
+        
       </form>
     </>
   );

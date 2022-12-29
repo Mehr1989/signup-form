@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { chooseAdress,choosePhoneNumber  } from "../redux/rootSlice";
 
 
@@ -22,23 +22,23 @@ const Step4 = () => {
   };
   return (
     <>
-      <label className="label">
+      <label>
           {errors.phoneNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phoneNumber.message}</span>}
        </label>
 
-       <label className="label">
+       <label>
            {errors.adress?.type === 'required' && <span className="label-text-alt text-red-500">{errors.adress.message}</span>}
         </label>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mx-auto form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text">Phone</span>
+        <div>
+          <label>
+            <span>Phone</span>
           </label>
           <input
             type="number"
             placeholder="Phone number "
-            className="input input-bordered w-full max-w-xs"
+          
             {...register("phoneNumber", {
               required: {
                 value: true,
@@ -48,14 +48,14 @@ const Step4 = () => {
           />
           
         </div>
-        <div className="mx-auto form-control w-full max-w-xs">
-          <label className="label">
-            <span className="label-text">Adress</span>
+        <div>
+          <label>
+            <span>Adress</span>
           </label>
           <input
             type="text"
             placeholder="Adress"
-            className="input input-bordered w-full max-w-xs"
+        
             {...register("adress", {
               required: {
                 value: true,
@@ -67,11 +67,12 @@ const Step4 = () => {
         </div>
 
 
-        <div className="flex justify-center">
-          <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
+        <div>
+        <button onClick={() =>navigate("/step2/step3")}>Back</button>
+         <input type="submit" value="Next" />
         </div>
 
-        <Link className="flex justify-center" to="/step2/step3"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
+        
       </form>
     </>
   );

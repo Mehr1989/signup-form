@@ -30,24 +30,24 @@ const Step2 = () => {
 
     <label className="label">
       {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-      {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+      {errors.email?.type === 'pattern' && <span >{errors.email.message}</span>}
     </label>
 
     <label className="label">
-      {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-      {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+      {errors.password?.type === 'required' && <span >{errors.password.message}</span>}
+      {errors.password?.type === 'minLength' && <span >{errors.password.message}</span>}
     </label>
 
 
      <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="mx-auto form-control w-full max-w-xs">
-                            <label className="label">
-                                <span className="label-text">Email</span>
+                        <div>
+                            <label>
+                                <span>Email</span>
                             </label>
                             <input
                                 type="email"
                                 placeholder="Your Email"
-                                className="input input-bordered w-full max-w-xs"
+                            
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -95,12 +95,12 @@ const Step2 = () => {
 
 
                         
-                        <div className='flex justify-center'>
-                        <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
+                        <div>
+                        <button onClick={() =>navigate("/")}>Back</button>
+                        <input  type="submit" value="Next" />
                         </div>
                         
                        
-                        <Link className="flex justify-center" to="/"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
                         
                     </form>
       

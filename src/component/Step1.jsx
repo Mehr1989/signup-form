@@ -20,28 +20,28 @@ const Step1 = () => {
     }
 
     return (
-        <div className=''>
+        <div>
              
              
           <label className="label">
-            {errors.firstName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.firstName.message}</span>}
+            {errors.firstName?.type === 'required' && <span>{errors.firstName.message}</span>}
           </label>
 
           <label className="label">
-            {errors.lastName?.type === 'required' && <span className="label-text-alt text-red-500">{errors.lastName.message}</span>}
+            {errors.lastName?.type === 'required' && <span>{errors.lastName.message}</span>}
           </label>
 
 
           <form onSubmit={handleSubmit(onSubmit)}>
-                <div className=" mx-auto form-control w-full max-w-xs">
+                <div>
 
-                    <label className="label">
-                        <span className="label-text">First Name</span>
+                    <label>
+                        <span>First Name</span>
                     </label>
                     <input
                         type="text"
                         placeholder="First Name"
-                        className="input input-bordered w-full max-w-xs"
+                        
                         {...register("firstName", {
                             required: {
                                 value: true,
@@ -51,14 +51,14 @@ const Step1 = () => {
                     />
                 
                 </div>
-                <div className=" mx-auto form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Last Name</span>
+                <div>
+                    <label>
+                        <span>Last Name</span>
                     </label>
                     <input
                         type="text"
                         placeholder="Last Name"
-                        className="input input-bordered w-full max-w-xs"
+                
                         {...register("lastName", {
                             required: {
                                 value: true,
@@ -69,8 +69,8 @@ const Step1 = () => {
                    
                 </div>
 
-                <div className='flex justify-center'>
-                    <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
+                <div>
+                    <input type="submit" value="Next" />
                 </div>
 
             </form>
