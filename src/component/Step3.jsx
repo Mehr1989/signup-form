@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import {  useNavigate } from "react-router-dom";
 import { chooseAge,chooseGender } from "../redux/rootSlice";
-
+import "bootstrap/dist/css/bootstrap.min.css"
+import Button from "react-bootstrap/Button"
+import { Container, Form } from 'react-bootstrap'
 
 
 const Step3 = () => {
@@ -21,20 +23,20 @@ const Step3 = () => {
   }
 
   return (
-    <>
+    <Container className="box">
 
 
-     <label className="label">
+     <Form.Label className="label">
          {errors.age?.type === 'required' && <span className="label-text-alt text-red-500">{errors.age.message}</span>}
-      </label>
+      </Form.Label>
 
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>
-            <span>Age</span>
-          </label>
-          <input
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Container>
+          <Form.Label style={{display:"inline",marginLeft:"9%"}}>
+            <span>Age:</span>
+          </Form.Label>
+          <Form.Control className='content' 
             type="number"
             placeholder="Your age"
           
@@ -46,26 +48,27 @@ const Step3 = () => {
             })}
           />
          
-        </div>
-        <div>
-          <label htmlFor="gender" className="label">
-            <span>Gender:</span>
-          </label>
+        </Container>
+        <Container>
+          <Form.Label htmlFor="gender"  style={{padding:"2%"}}>
+            <span style={{marginRight:"1rem"}}>Gender:</span>
+          </Form.Label>
 
           <select  id="gender" {...register('gender')}>
             <option value="male">Male</option>
             <option value="female">Female</option>
            
           </select>
-        </div>
-        <div >
-        <button onClick={() =>navigate("/step2")}>Back</button>
-          <input  type="submit" value="Next" />
-        </div>
+        </Container>
+        <Container style={{marginTop:"1rem",marginLeft:"3%"}} >
+        <Button onClick={() =>navigate("/step2")} style={{marginRight:"2%"}}>Back</Button>
+        <Button ><input  type="submit" value="Next" className="btn-next" /></Button>
+          
+        </Container>
 
         
-      </form>
-    </>
+      </Form>
+    </Container>
   );
 };
 

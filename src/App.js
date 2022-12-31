@@ -19,7 +19,7 @@ function App(){
 
     
     <div className="App">
-      <h3>hello world</h3>
+      <h3 style={{padding:"2rem",fontWeight:"800"}}>Hello World</h3>
       <Routes>
           <Route path="/" element={<Step1 />} />
           <Route path="/step2" element={<Step2 />} />

@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { chooseAdress,choosePhoneNumber  } from "../redux/rootSlice";
+import "bootstrap/dist/css/bootstrap.min.css"
+import Button from "react-bootstrap/Button"
+import { Container, Form } from 'react-bootstrap'
 
 
 
@@ -21,21 +24,20 @@ const Step4 = () => {
 
   };
   return (
-    <>
-      <label>
-          {errors.phoneNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phoneNumber.message}</span>}
-       </label>
+    <Container className="box">
+     
 
-       <label>
-           {errors.adress?.type === 'required' && <span className="label-text-alt text-red-500">{errors.adress.message}</span>}
-        </label>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>
-            <span>Phone</span>
-          </label>
-          <input
+      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form.Label>
+          {errors.phoneNumber?.type === 'required' && <span>{errors.phoneNumber.message}</span>}
+      
+           {errors.adress?.type === 'required' && <span>{errors.adress.message}</span>}
+        </Form.Label>
+        <Container>
+          <Form.Label style={{display:"inline",marginLeft:"9%"}}>
+            <span>Phone:</span>
+          </Form.Label>
+          <Form.Control className='content' 
             type="number"
             placeholder="Phone number "
           
@@ -47,12 +49,12 @@ const Step4 = () => {
             })}
           />
           
-        </div>
-        <div>
-          <label>
-            <span>Adress</span>
-          </label>
-          <input
+        </Container>
+        <Container>
+          <Form.Label style={{display:"inline",marginLeft:"9%"}}>
+            <span>Adress:</span>
+          </Form.Label>
+          <Form.Control className='content' 
             type="text"
             placeholder="Adress"
         
@@ -64,17 +66,18 @@ const Step4 = () => {
             })}
           />
           
-        </div>
+        </Container>
 
 
-        <div>
-        <button onClick={() =>navigate("/step2/step3")}>Back</button>
-         <input type="submit" value="Next" />
-        </div>
+        <Container style={{marginLeft:"8%"}}>
+        <Button onClick={() =>navigate("/step2/step3")} style={{marginRight:"2%"}}>Back</Button>
+        <Button><input type="submit" value="Next" className="btn-next" /></Button>
+         
+        </Container>
 
         
-      </form>
-    </>
+      </Form>
+    </Container>
   );
 };
 

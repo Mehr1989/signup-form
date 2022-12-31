@@ -5,6 +5,16 @@ import { useForm } from 'react-hook-form'
 import { chooseFirstName,chooseLastName } from '../redux/rootSlice'
 
 
+import "bootstrap/dist/css/bootstrap.min.css"
+import { Button, Container} from 'react-bootstrap'
+import '../style/style.css'
+import { Form } from 'react-bootstrap'
+
+
+
+
+
+
 const Step1 = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -20,62 +30,62 @@ const Step1 = () => {
     }
 
     return (
-        <div>
-             
-             
-          <label className="label">
+        <Container className='box'>
+       
+         
+          <Form onSubmit={handleSubmit(onSubmit)}>
+               
+           <Form.Label style={{padding:"2%"}}>
             {errors.firstName?.type === 'required' && <span>{errors.firstName.message}</span>}
-          </label>
-
-          <label className="label">
             {errors.lastName?.type === 'required' && <span>{errors.lastName.message}</span>}
-          </label>
+           </Form.Label>
+      
+            <Container>
+                   <Form.Label style={{display:"inline",marginLeft:"9%"}}>
+                        <span>First Name:</span>
+                    </Form.Label>
 
-
-          <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-
-                    <label>
-                        <span>First Name</span>
-                    </label>
-                    <input
+                  
+                    <Form.Control className='content' 
                         type="text"
-                        placeholder="First Name"
+                        placeholder="First Name..."
                         
                         {...register("firstName", {
                             required: {
                                 value: true,
-                                message: <h4>First Name is Required</h4>
+                                message: <h4>First Name is required!</h4>
                             }
                         })}
                     />
-                
-                </div>
-                <div>
-                    <label>
-                        <span>Last Name</span>
-                    </label>
-                    <input
-                        type="text"
-                        placeholder="Last Name"
+
+                   </Container>
+                    
+
+                    <Container>
+                    <Form.Label  style={{display:"inline",marginLeft:"9%"}}>
+                        <span>Last Name:</span>
+                    </Form.Label>
+                    <Form.Control  className='content' 
+                        placeholder="Last Name..."
                 
                         {...register("lastName", {
                             required: {
                                 value: true,
-                                message: <h4>Last Name is Required</h4> 
+                                message: <h4>Last Name is Required!</h4> 
                             }
                         })}
                     />
-                   
-                </div>
+                  
+                </Container>
 
-                <div>
-                    <input type="submit" value="Next" />
-                </div>
+                <Container>
+                    <Button style={{marginLeft:"10%"}}>  <input type="submit" value="Next" className='btn-next'/></Button>
+                  
+                </Container>
 
-            </form>
+            </Form>
 
-        </div>
+        </Container>
     )
 }
 export default Step1;
