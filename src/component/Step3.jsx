@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {  useNavigate } from "react-router-dom";
 import { chooseAge,chooseGender } from "../redux/rootSlice";
 import "bootstrap/dist/css/bootstrap.min.css"
-import Button from "react-bootstrap/Button"
-import { Container, Form } from 'react-bootstrap'
+
+import { Container, Form, Button } from 'react-bootstrap'
 
 
 const Step3 = () => {
@@ -59,10 +59,10 @@ const Step3 = () => {
             <option value="female">Female</option>
            
           </select>
-        </Container>
-        <Container style={{marginTop:"1rem",marginLeft:"3%"}} >
-        <Button onClick={() =>navigate("/step2")} style={{marginRight:"2%"}}>Back</Button>
-        <Button ><input  type="submit" value="Next" className="btn-next" /></Button>
+        </Container >
+        <Container style={{marginTop:"1rem",marginLeft:"7%"}} >
+        <Button onClick={() =>navigate("/step2")} style={{width:"20%"}}>Back</Button>
+        <Button style={{marginLeft:"2%",width:"20%"}}><input  type="submit" value="Next" className="btn-next"  /></Button>
           
         </Container>
 

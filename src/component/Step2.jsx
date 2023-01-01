@@ -7,8 +7,8 @@ import { chooseEmail,choosePassword  } from "../redux/rootSlice";
 
 
 import "bootstrap/dist/css/bootstrap.min.css"
-import Button from "react-bootstrap/Button"
-import { Container, Form} from 'react-bootstrap'
+
+import { Container, Form, Button} from 'react-bootstrap'
 
 
 
@@ -99,8 +99,8 @@ const Step2 = () => {
               </Container>
                                                
               <Container style={{marginLeft:"6%"}}>
-                 <Button onClick={() =>navigate("/")}>Back</Button>
-                 <Button style={{marginLeft:"1rem"}}><input  type="submit" value="Next" className="btn-next"/></Button>       
+                 <Button onClick={() =>navigate("/")} style={{width:"20%"}}>Back</Button>
+                 <Button style={{marginLeft:"2%",width:"20%"}}><input  type="submit" value="Next" className="btn-next"/></Button>       
                </Container>  
                  </Form>
       

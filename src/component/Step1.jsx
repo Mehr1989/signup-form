@@ -6,9 +6,9 @@ import { chooseFirstName,chooseLastName } from '../redux/rootSlice'
 
 
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Button, Container} from 'react-bootstrap'
+import { Button, Container, Form} from 'react-bootstrap'
 import '../style/style.css'
-import { Form } from 'react-bootstrap'
+
 
 
 
@@ -79,7 +79,7 @@ const Step1 = () => {
                 </Container>
 
                 <Container>
-                    <Button style={{marginLeft:"10%"}}>  <input type="submit" value="Next" className='btn-next'/></Button>
+                    <Button style={{marginLeft:"22%",width:"40%"}}>  <input type="submit" value="Next" className='btn-next'/></Button>
                   
                 </Container>
 

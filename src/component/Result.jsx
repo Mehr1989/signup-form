@@ -1,6 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
+
+import '../style/style.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+import { Container, Button,Form,Table} from 'react-bootstrap'
+
+
 
 const Result = () => {
   const state = useSelector(state => state)
@@ -15,24 +21,66 @@ const Result = () => {
 
   return (
     <>
-      <h1 className='text-4xl	text-center'>Review</h1>
-      <div className="h-5 divider"></div>
-      <div className=''>
-        <p className='text-2xl'>Your Name: {state.firstName} {state.lastName}</p>
-        <p className='text-2xl'>Your Email: {state.email} </p>
-        <p className='text-2xl'>Your Password: {state.password} </p>
-        <p className='text-2xl'>Your Age: {state.age} </p>
-        <p className='text-2xl'>Your Gender: {state.gender} </p>
-        <p className='text-2xl'>Your Phone Number: {state.phoneNumber} </p>
-        <p className='text-2xl'>Your Adress: {state.adress} </p>
-      </div>
+    
+      <Container className='container'>
+      <header className='title'><h2>Review</h2></header>
 
-      <form onSubmit={(onSubmit)}>
-        <div className="flex justify-center">
-          <input className='mt-4 btn w-full max-w-xs text-white' type="submit" value="Submit" />
-        </div>
-        <Link className="flex justify-center" to="/step2/step3/step4"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
-      </form>
+    
+
+
+      <Container className="box">
+
+      <Container className='table' >
+
+       <Table>
+        <thead>
+        <tr>
+          <td>Name:</td>
+        <th>{state.firstName}  {state.lastName}</th>
+        </tr>
+        <tr> 
+      
+          <td>Emaile: </td>
+          <th>{state.email}</th>
+        </tr>
+        <tr> 
+          <td>Password: </td>
+          <th>{state.password}</th>
+        </tr>
+        <tr> 
+          <td>Age: </td>
+          <th>{state.age}</th>
+        </tr>
+        <td>Gender: </td>
+        <th>{state.gender}</th>
+       
+        <tr>
+          <td> Phone Number: </td>
+          <th>{state.phoneNumber}</th>
+        </tr>
+        <tr> 
+          <td>Address: </td>
+          <th>{state.adress}</th>
+        </tr>
+       
+        </thead>
+    
+      </Table>
+         </Container>
+         
+          <Form onSubmit={(onSubmit)}>
+            <Container style={{marginTop:"6%"}}>
+
+          <Button onClick={() =>navigate("/step2/step3/step4")} style={{width:"20%"}}>Back</Button>
+          <Button style={{marginLeft:"2%",width:"20%"}}> <input type="submit" value="Submit"  className="btn-next"  /></Button> 
+            </Container>
+         
+           </Form>
+          
+        </Container>
+        </Container>
+
+     
     </>
   )
 };

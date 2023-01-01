@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { chooseAdress,choosePhoneNumber  } from "../redux/rootSlice";
+
+
 import "bootstrap/dist/css/bootstrap.min.css"
-import Button from "react-bootstrap/Button"
-import { Container, Form } from 'react-bootstrap'
+
+import { Container, Form, Button } from 'react-bootstrap'
 
 
 
@@ -70,8 +72,8 @@ const Step4 = () => {
 
 
         <Container style={{marginLeft:"8%"}}>
-        <Button onClick={() =>navigate("/step2/step3")} style={{marginRight:"2%"}}>Back</Button>
-        <Button><input type="submit" value="Next" className="btn-next" /></Button>
+        <Button onClick={() =>navigate("/step2/step3")} style={{width:"20%"}}>Back</Button>
+        <Button style={{marginLeft:"2%",width:"20%"}}><input type="submit" value="Next" className="btn-next" /></Button>
          
         </Container>
 
